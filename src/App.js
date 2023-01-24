@@ -1,8 +1,9 @@
+import QuestionStart from "./components/QuestionStart/QuestionStart";
 
 function App() {
   return (
-    <div className="App">
-      quizzical
+    <div className="app__ctn">
+      <QuestionStart/>
     </div>
   );
 }
