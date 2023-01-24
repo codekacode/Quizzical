@@ -1,4 +1,5 @@
 import QuestionStart from "./components/QuestionStart/QuestionStart";
+import "./App.css"
 
 function App() {
   return (
