@@ -1,0 +1,31 @@
+.question-container {
+  padding-bottom:14px;
+  border-bottom: 1px solid #DBDEF0 ;
+  min-width: 400px;
+  color: #4D5B9E;
+}
+
+.question-title {
+  font-size: 16px;
+}
+
+.question-option-btn-select {
+  background-color: #D6DBF5;  
+  border: none;
+  border-radius: 8px;
+  padding: 4px 19px;
+  font-size: 10px;
+}
+
+.question-option-btn-noselect {
+  border: 1px solid #4D5B9E;
+  border-radius: 8px;
+  padding: 4px 19px;  
+  font-size: 10px;
+}
+
+.question-option-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
