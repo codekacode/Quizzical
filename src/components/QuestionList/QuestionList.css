@@ -1,0 +1,14 @@
+.question-list-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.question-sent__btn {
+  background-color: #4D5B9E;
+  border: 1px solid #4D5B9E;
+  height: 35px;
+  width: 120px;
+  border-radius: 10px;
+  color: #fff;
+  margin: 20px auto 0;
+}
