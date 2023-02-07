@@ -17,11 +17,12 @@
   font-size: 10px;
 }
 
-.question-option-btn-noselect {
+.question-option-btn {
   border: 1px solid #4D5B9E;
   border-radius: 8px;
   padding: 4px 19px;  
   font-size: 10px;
+  background-color: #F5F7FB;
 }
 
 .question-option-container {

@@ -4,17 +4,24 @@ import "./Question.css"
 
 function Question(props) {
 
-  const incorrectAnswersItems = props.incorrectAnswer.map(answer => {
-    return <button className="question-option-btn-select">{decode(answer)}</button>
+  const incorrectAnswersItems = props.incorrectAnswer
+
+  const correctAnswersItems = props.correctAnswer
+
+  console.log(correctAnswersItems)
+
+  const totalAnswers = [...incorrectAnswersItems, correctAnswersItems]
+  console.log(totalAnswers)
+
+  const allAnswers = totalAnswers.map(answer => {
+    const styledAnswers = `${props.selectedAnswer === answer ? "question-option-btn" : "question-option-btn-select"}`
+    return <button className={styledAnswers} onClick={()=> props.handleSelectAnswer(props.id, answer)}>{decode(answer)}</button>
   })
 
-  const correctAnswersItems = <button className="question-option-btn-select">{decode(props.correctAnswer)}</button>
-
-  incorrectAnswersItems.push(correctAnswersItems)
-
-  const sortedAnswerItems = incorrectAnswersItems.sort((a, b) => (
+  const sortedAnswerItems = allAnswers.sort((a, b) => (
     a.props.children.localeCompare(b.props.children)
   ))
+
 
   return (
     <div className="question-container">

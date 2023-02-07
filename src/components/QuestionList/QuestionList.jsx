@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import getQuestions from '../../services/getQuestions'
 import Question from '../Question/Question'
+import { nanoid } from 'nanoid'
 import "./QuestionList.css"
 
 function QuestionList() {
@@ -10,7 +11,9 @@ function QuestionList() {
     getQuestions().then(questions => {
       setQuestionsArray(questions.map(question => {
         return {
-          ...question
+          ...question,
+          id: nanoid(),
+          selectedAnswer: "",
         }
       }))
     })
@@ -18,11 +21,22 @@ function QuestionList() {
 
   console.log(questionsArray);
 
+  const handleSelectAnswer = (questionId, answer) => {
+    setQuestionsArray(prevQuestionsArray => (
+      prevQuestionsArray.map(question => (
+        question.id === questionId ? {...question, selectedAnswer: answer} : question
+      ))
+    ))
+  }
+
   const questionItems = questionsArray.map(question => (
     <Question
+      id={question.id}
       question={question.question}
       correctAnswer={question.correct_answer}
       incorrectAnswer={question.incorrect_answers}
+      selectedAnswer={question.selectedAnswer}
+      handleSelectAnswer={handleSelectAnswer}
     />
   ))
 
