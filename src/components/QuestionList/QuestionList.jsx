@@ -21,7 +21,8 @@ function QuestionList() {
   const questionItems = questionsArray.map(question => (
     <Question
       question={question.question}
-
+      correctAnswer={question.correct_answer}
+      incorrectAnswer={question.incorrect_answers}
     />
   ))
 
