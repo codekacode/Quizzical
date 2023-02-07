@@ -6,6 +6,9 @@ import "./QuestionList.css"
 
 function QuestionList() {
   const [questionsArray, setQuestionsArray] = useState([]);
+  const [isGameOver, setIsGameOver] = useState(false);
+
+  const allQuestionsAnswered = questionsArray.every(question => question.selectedAnswer !== "");
 
   useEffect(() => {
     getQuestions().then(questions => {
@@ -29,6 +32,16 @@ function QuestionList() {
     ))
   }
 
+  const checkAnswers = () => {
+    if(allQuestionsAnswered){
+      setIsGameOver(true)
+    }
+  }
+
+  const resetGame = () => {
+    setIsGameOver(false)
+  }
+
   const questionItems = questionsArray.map(question => (
     <Question
       id={question.id}
@@ -43,7 +56,7 @@ function QuestionList() {
   return (
     <div className="question-list-container">
       {questionItems}
-      <button className="question-sent__btn">Check answers</button>
+      <button className="question-sent__btn" onClick={isGameOver ? resetGame : checkAnswers}>{isGameOver ? "Play Again" : "Check Answers"}</button>
     </div>
   )
 }
