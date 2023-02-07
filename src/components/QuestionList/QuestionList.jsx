@@ -14,12 +14,20 @@ function QuestionList() {
         }
       }))
     })
-  })
+  }, [])
+
+  console.log(questionsArray);
+
+  const questionItems = questionsArray.map(question => (
+    <Question
+      question={question.question}
+
+    />
+  ))
+
   return (
     <div className="question-list-container">
-      <Question/>
-      <Question/>
-      <Question/>
+      {questionItems}
       <button className="question-sent__btn">Check answers</button>
     </div>
   )

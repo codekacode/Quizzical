@@ -1,10 +1,11 @@
 import React from 'react'
+import {decode} from 'html-entities';
 import "./Question.css"
 
-function Question() {
+function Question({question}) {
   return (
     <div className="question-container">
-      <h3 className="question-title">How would one say goodbye in Spanish?</h3>
+      <h3 className="question-title">{decode(question)}</h3>
       <div className="question-option-container">
         <button className="question-option-btn-select">Adiós</button>
         <button className="question-option-btn-noselect">Adiós</button>
